@@ -1,1 +1,14 @@
-.brand img{width:50%}
+.brand{ padding: 0px 30px}
+.brand img{width:150px}
+.navbar{border-bottom: 1px solid black}
+
+.jumbotron {background-size: 100%; margin:0px; padding-bottom:40px; background-position: center; border: 1px 0px 1px 0px  solid black; }
+.jumbotron h1{padding-top: 30px; font-weight: bold}
+.jumbotron .display, .lead, .caption h3 {color:#fff; text-shadow: 0 5px 5px rgba(0,0,0,.6)}
+
+.row{width:100%; margin: 40px 0;}
+.btn{margin-top: 10px}
+
+.thumbnail{background-color: transparent; border: none;}
+.thumbnail img{width:242px; height:200px}
+
