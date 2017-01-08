@@ -2,7 +2,7 @@
 .brand img{width:150px}
 .navbar{border-bottom: 1px solid black}
 
-.jumbotron {background-size: 100%; margin:0px; padding:0px; background-position: center; border: 1px 0px 1px 0px  solid black; }
+.jumbotron { margin:0px; padding:0px; background-position: center; border: 1px 0px 1px 0px  solid black; }
 .jumbotron h1{padding-top: 30px; font-weight: bold}
 .jumbotron .display, .lead, .caption h3 {color:#fff; text-shadow: 0 5px 2px rgba(0,0,0,.6)}
 .jumbotron .container{padding-top:30px}
