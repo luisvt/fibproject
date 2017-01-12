@@ -1,5 +1,9 @@
 $(function(){
+var $trelloheader = $('#trelloheader');
 var $items = $('div.jumbotron');
+var $trellotask = $('#trellotasks');
+var $trellobadge = $('#trellobadge')
+
 $.ajax({
 type:'GET', 
 dataType:'jsonp',
@@ -9,7 +13,6 @@ success:function(results){
 
 
 $.each(results.data.slice(0,1), function(i, result){
-    console.log(result.data);
 $items.css("background-image",'url('+ result.photo_sample[0].highres_link +')');
 
 });
@@ -23,6 +26,73 @@ error: function(e){
 
 });
 
+$.ajax({
+url: 'https://api.trello.com/1/boards/8TZhObPN?fields=name,desc&cards=open&card_fields=all&lists=open&list_fields=all',
+dataType:'json',
+type:'GET',
+success: function(results){
+
+
+
+var trelloboards = results;
+var trellolists = results.lists;
+var trellocards = results.cards;
+
+
+
+
+
+$trelloheader.append('<span class = "badge pull-right ">'+'Tasks '+trelloboards.lists.length+'<span>');
+    
+$trelloheader.append(
+'<h3>'+ trelloboards.name + '</h3>');
+
+
+;
+
+
+$.each(trellolists, function(b, list){
+
+
+
+
+
+  
+$trellotask.append(
+    
+    
+        '<div class="col-md-4"><div class="panel panel-default">'+
+  '<div class="panel-heading"><h4>' +list['name'] +'</h4>'+( list['closed']= false ? '<div class="badge pull-right">Open</div>': '<div class="badge pull-right">Open</div>')+'</div><div class="panel-body"></div></div></div>');
+
+$.each(trellocards, function(i,card){
+    if(list.id == card.idList){
+       $trellotask.append(
+         
+           list.id, card.id)
+
+   }
+   else{
+        $trellotask.append( '');
+       
+   }
+
+})
+
+
+
+});
+
+
+ 
+
+
+
+
+
+
+
+}
+});
 
 
 });
