@@ -69,8 +69,8 @@ $.each(trellolists, function(b, list){
 
 $.each(trellocards, function(i,card){
    if(list.id == card.idList){
-     trellohtml += '<div class="panel-body"><p>'+'Title: '+card.name+'</p>'
-     +'Description: '+card.desc+'</div>';
+     trellohtml += '<div class="panel-body"><p>'+'Title: '+card.name+'</p>'+
+     (card.description != false ? 'Description : '+card.desc :' ')+'</div>';
 
    }
 });
