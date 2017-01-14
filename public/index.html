@@ -78,11 +78,11 @@
 <div class="container">
   <div class="row">
     <div class="panel panel-default">
-  <div  id="trelloheader" class="panel-heading"></div>
+  <div id="trelloheader" class="panel-heading"></div>
   <div class="panel-body">
     
-    <div id="trellotasks" class="row">
-  
+    <div class="row" id="trellotasks">
+    
 
 
 
@@ -108,12 +108,40 @@
   </div>
 </div>
 
-
+<div id = "mydata"></div>
 
 
 
 
 <script src="js/custom.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+<script src ="lib/require.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAlBU8D5-Z7bkplFUqKyD-iM3rU45pAJak",
+    authDomain: "myprogithub.firebaseapp.com",
+    databaseURL: "https://myprogithub.firebaseio.com",
+    storageBucket: "myprogithub.appspot.com",
+    messagingSenderId: "762546487092"
+  };
+  firebase.initializeApp(config);
+ 
+ var ref = firebase.database().ref("projects");
+ref.once("value")
+  .then(function(snapshot) {
+    var name = snapshot.child("details").val(); 
+    console.log(name);
+   
+   
+    
+    document.getElementById('mydata').innerHTML=name['title'];
+
+  });
+
+
+
+</script>
 
 
   </body>
