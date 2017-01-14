@@ -3,6 +3,7 @@ var $trelloheader = $('#trelloheader');
 var $items = $('div.jumbotron');
 var $trellotask = $('#trellotasks');
 var $trellobadge = $('#trellobadge')
+var $ta = $('#ta');
 
 $.ajax({
 type:'GET', 
@@ -48,7 +49,7 @@ $trelloheader.append(
 '<h3>'+ trelloboards.name + '</h3>');
 
 
-;
+
 
 
 $.each(trellolists, function(b, list){
@@ -58,27 +59,25 @@ $.each(trellolists, function(b, list){
 
 
   
-$trellotask.append(
+
     
     
-        '<div class="col-md-4"><div class="panel panel-default">'+
-  '<div class="panel-heading"><h4>' +list['name'] +'</h4>'+( list['closed']= false ? '<div class="badge pull-right">Open</div>': '<div class="badge pull-right">Open</div>')+'</div><div class="panel-body"></div></div></div>');
+      var trellohtml=  '<div class="col-md-4"><div class="panel panel-default">'+
+  '<div class="panel-heading"><h4>' +list['name'] +'</h4>'+( list['closed']= false ? '<div class="badge pull-right">Open</div>': '<div class="badge pull-right">Open</div>')+'</div>'
+
+
 
 $.each(trellocards, function(i,card){
-    if(list.id == card.idList){
-       $trellotask.append(
-         
-           list.id, card.id)
+   if(list.id == card.idList){
+     trellohtml += '<div class="panel-body"><p>'+'Title: '+card.name+'</p>'
+     +'Description: '+card.desc+'</div>';
 
    }
-   else{
-        $trellotask.append( '');
-       
-   }
-
-})
+});
 
 
+trellohtml+='</div>';
+$trellotask.append(trellohtml);
 
 });
 
