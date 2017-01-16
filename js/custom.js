@@ -28,7 +28,7 @@ error: function(e){
 });
 
 $.ajax({
-url: 'https://api.trello.com/1/boards/8TZhObPN?fields=name,desc&cards=open&card_fields=all&lists=open&list_fields=all',
+url: 'https://api.trello.com/1/boards/8TZhObPN?fields=name,desc&cards=open&card_fields=all&lists=open&list_fields=all&members=all&member_fields=all',
 dataType:'json',
 type:'GET',
 success: function(results){
@@ -38,6 +38,9 @@ success: function(results){
 var trelloboards = results;
 var trellolists = results.lists;
 var trellocards = results.cards;
+var trellomem = results.members;
+console.log(trellomem, 'members av works')
+
 
 
 
@@ -68,13 +71,27 @@ $.each(trellolists, function(b, list){
 
 
 $.each(trellocards, function(i,card){
+  
+  $.each(trellomem, function(i, member){
+   
+ 
    if(list.id == card.idList){
-     trellohtml += '<div class="panel-body"><p>'+'Title: '+card.name+'</p>'+
-     (card.badges.description != true ? ' ' : 'Description: ' + card.desc)+'</div>';
-
+     trellohtml += '<div class="panel-body"><p><a href="'+card.shortUrl+'">'+card.name+'</a></p>'+
+     (card.badges.description != true ? ' ' : '<p>'+'Description: ' + card.desc+'</p>')
+      +'</div>'+'<div class="panel-body"><div class ="col-md-5">'+(member.id == card.idMembers ? '<div class="thumbnail">'+'<img src="https://trello-avatars.s3.amazonaws.com/'+ member.avatarHash +'/30.png'+'" />'+'<p>'+member.username+'</p></div></div>':"")
+     +'</div>';
+    
    }
+
+
 });
 
+
+
+})
+
+  
+  
 
 trellohtml+='</div>';
 $trellotask.append(trellohtml);
