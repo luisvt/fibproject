@@ -131,8 +131,7 @@
 ref.once("value")
   .then(function(snapshot) {
     var name = snapshot.child("details").val(); 
-    console.log(name);
-   
+    
    
     
     document.getElementById('mydata').innerHTML=name['title'];
