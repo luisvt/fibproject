@@ -1,0 +1,147 @@
+<div id="mike"></div>
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Code for Fort Lauderdale | A Code for America Brigade
+	</title>
+	<meta name="google-site-verification" content="mzzt_14vPhLb8c3C3qp-qAqSjDk_w368wxHtru2D4ZI" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description"
+	content="Locals helping Fort Lauderdale open their data and create meaningful web and mobile apps">
+	<meta name="geo.position" content="26.07;-80.22" />
+	<meta name="geo.placename" content="Fort Lauderdale, Florida, USA" />
+	<meta name="geo.region" content="US-FL" />
+	<meta property="og:title" content="Code for Fort Lauderdale" />
+	<meta name="twitter:url" content="http://www.twitter.com/CodeforFTL/" />
+	<meta name="twitter:site" value="@codeforftl" />
+	<meta property="og:locality" content="Fort Lauderdale" />
+	<link rel="shortcut icon" href="favicon.ico">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Custom Styesheet -->
+<link rel="stylesheet" href="css/style.css">
+<script src="lib/jquery/dist/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+  <body>
+    
+
+<div class ="container-full">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#dropit" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="#"><img src="images/codeforftllogo.png"/> </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id ="dropit">
+      <ul class="nav navbar-nav">
+        <li><a href="#" data-toggle="home">Home</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Contact</a>
+        <li><a href='#'>Projects</a>
+      </ul>
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="jumbotron" > 
+   <div class="container">
+   <h1 class="display">We Are Code For Fort Lauderdale</h1>
+  <p class="lead">Come join idea-makers, designers, citizen leaders, developers, and data geeks who volunteer to help the Fort Lauderdale government and civic orgs adopt open web technologies. <br/>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
+
+  </div>
+  </div>
+
+
+
+
+
+  
+<div class="container">
+  <div class="row">
+    <div class="panel panel-default">
+  <div id="trelloheader" class="panel-heading"></div>
+  <div class="panel-body">
+    
+    <div class="row" id="trellotasks">
+    
+
+
+
+
+
+  </div>
+</div>
+    <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+    <img src="images/robDavis.png"/>
+      
+    </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+    <img src="images/ryang.png"/></div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+    <img src="images/quyenTran.png"/>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div id = "mydata"></div>
+
+
+
+
+<script src="js/custom.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+<script src ="lib/require.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAlBU8D5-Z7bkplFUqKyD-iM3rU45pAJak",
+    authDomain: "myprogithub.firebaseapp.com",
+    databaseURL: "https://myprogithub.firebaseio.com",
+    storageBucket: "myprogithub.appspot.com",
+    messagingSenderId: "762546487092"
+  };
+  firebase.initializeApp(config);
+ 
+ var ref = firebase.database().ref("projects");
+ref.once("value")
+  .then(function(snapshot) {
+    var name = snapshot.child("details").val(); 
+    
+   
+    
+    document.getElementById('mydata').innerHTML=name['title'];
+
+  });
+
+
+
+</script>
+
+
+  </body>
+</html>
