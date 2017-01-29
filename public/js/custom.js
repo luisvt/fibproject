@@ -1,4 +1,53 @@
 $(function(){
+var $trigger = $('ul a');
+var $content = $('.jumbotron');
+console.log($trigger + $content);
+
+$trigger.on("click", function(){
+var $this = $(this);
+target = $this.data('target');
+$content.load(target);
+
+
+
+
+});
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(function(){
 var $trelloheader = $('#trelloheader');
 var $items = $('div.jumbotron');
 var $trellotask = $('#trellotasks');
