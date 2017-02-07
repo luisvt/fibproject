@@ -1,4 +1,4 @@
-<div id="mike"></div>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -34,7 +34,7 @@
   <body>
     
 
-<div class ="container-full">
+<div class ="container-full " >
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -45,34 +45,33 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="brand" href="#"><img src="images/codeforftllogo.png"/> </a>
+      <a class="brand" href="#Home"><img src="images/codeforftllogo.png"/> </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id ="dropit">
       <ul class="nav navbar-nav">
-        <li><a href="#" data-toggle="home">Home</a></li>
-        <li><a href="#">Events</a></li>
-        <li><a href="#">Contact</a>
-        <li><a href='#'>Projects</a>
+        <li><a href="#Events" data-target="events.html">Events</a></li>
+        <li><a href="#Projects" data-target="projects.html" >Projects</a></li>
+        <li><a href="#Contact" data-target="contact.html" >Contact</a></li>
       </ul>
-      
+    
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 <div class="jumbotron" > 
-   <div class="container">
-   <h1 class="display">We Are Code For Fort Lauderdale</h1>
-  <p class="lead">Come join idea-makers, designers, citizen leaders, developers, and data geeks who volunteer to help the Fort Lauderdale government and civic orgs adopt open web technologies. <br/>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  </p>
+ 
+  
 
   </div>
   </div>
 
 
 
-<div class="container-fluid">
+
+
+  
+<div class="container-fluid" id="projects">
   
     <div class="panel panel-default">
   <div id="trelloheader" class="panel-heading"></div>
@@ -87,7 +86,7 @@
 
   </div>
 </div>
-	    </div>
+</div>
     <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
     <img src="images/robDavis.png"/>
@@ -103,21 +102,15 @@
     <img src="images/quyenTran.png"/>
     </div>
     </div>
-  
-</div>
-
-
-  
-
-
+  </div>
 <div id = "mydata"></div>
+
 
 
 
 
 <script src="js/custom.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
-<script src ="lib/require.js"></script>
 <script>
   // Initialize Firebase
   var config = {
